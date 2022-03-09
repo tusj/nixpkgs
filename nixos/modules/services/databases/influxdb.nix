@@ -97,7 +97,7 @@ let
   } cfg.extraConfig;
 
   configFile = pkgs.runCommandLocal "config.toml" {
-    nativeBuildInputs = [ pkgs.remarshal ];
+    nativeBuildInputs = [ pkgs.buildPackages.remarshal ];
   } ''
     remarshal -if json -of toml \
       < ${pkgs.writeText "config.json" (builtins.toJSON configOptions)} \
