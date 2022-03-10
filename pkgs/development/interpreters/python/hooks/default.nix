@@ -110,7 +110,8 @@ in rec {
     makeSetupHook {
       name = "python-namespaces-hook.sh";
       substitutions = {
-        inherit pythonSitePackages findutils;
+        nativeBuildInputs = [ findutils ];
+        inherit pythonSitePackages;
       };
     } ./python-namespaces-hook.sh) {};
 
